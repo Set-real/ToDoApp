@@ -20,7 +20,8 @@ namespace ToDoApp.Model
             get { return _isDone; } 
             set
             {
-                if(_isDone ==  value) return;
+                if(_isDone ==  value) 
+                    return;
                 _isDone = value;
                 OnPropertyChanged("IsDone");
             }
@@ -31,7 +32,8 @@ namespace ToDoApp.Model
             get { return _text; }
             set
             {
-                if( _text == value) return;
+                if( _text == value) 
+                    return;
                 _text = value;
                 OnPropertyChanged("Text");
             }
@@ -41,7 +43,7 @@ namespace ToDoApp.Model
 
         protected virtual void OnPropertyChanged(string propertyName = "")
         {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
