@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="ToDo" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>        
+        <DataGrid x:Name="dgToDoList" FontSize="16" FontWeight="Bold" Margin="5,5,5,5" Loaded="dgToDoList_Loaded" AutoGenerateColumns="False" Grid.ColumnSpan="4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=CreationDate}" IsReadOnly="True" Header="CreateDate" Width="180"/>
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsDone, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Header="Done" Width="70"/>
+                <DataGridTextColumn Binding="{Binding Path=Text}" IsReadOnly="True" Header="ToDo" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
